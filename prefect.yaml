@@ -18,6 +18,13 @@ pull:
     repository: https://github.com/hannahwimmer/test_one.git
     branch: main
 
+build:
+  - prefect.deployments.steps.run_shell_script:
+      id: install-deps
+      script: |
+        pip install uv
+        uv pip install .
+
 # the deployments section allows you to provide configuration for deploying flows
 deployments:
 - name: my-test-4
