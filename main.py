@@ -1,9 +1,11 @@
 from prefect import task, flow
+import numpy as np
 
 @task
 def get_greeting_text():
     text = "Hey there!"
-    return text
+    value = np.mean([2,5,4])
+    return text + " Our value is: " + str(value)
 
 @flow
 def greeting_procedure():
